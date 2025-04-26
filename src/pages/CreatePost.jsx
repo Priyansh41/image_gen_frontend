@@ -5,7 +5,8 @@ import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8080" : process.env.REACT_APP_URL;
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8080" : process.env.BACKEND_URL;
+
 const CreatePost = () => {
   const navigate = useNavigate();
 
@@ -57,7 +58,7 @@ const CreatePost = () => {
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
-        const response = await fetch(`${BASE_URL}/api/v1/post`, {
+        const response = await fetch(process.env.BACKEND_URL || 'http://localhost:8080/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

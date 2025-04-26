@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Card, FormField, Loader } from '../components';
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8080" : process.env.REACT_APP_URL;
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8080" : process.env.BACKEND_URL;
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
