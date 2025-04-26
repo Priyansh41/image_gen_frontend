@@ -5,7 +5,7 @@ import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8080" : "/";
+const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8080" : process.env.URL;
 
 const CreatePost = () => {
   const navigate = useNavigate();
